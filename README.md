@@ -1,6 +1,6 @@
 # Kontent Konstellations
 
-This is a sample app that uses the [Kentico Kontent Python SDK](#https://github.com/kentico-michaelb/kontent-delivery-python-sdk) to retrieve content from Kentico Kontent, Plotly, and [Dash](https://plotly.com/python/network-graphs/#network-graphs-in-dash) to generate a network graph of linked items in a Kontent project.
+This is a sample app that uses the [Kentico Kontent Python SDK](#https://github.com/kentico-michaelb/kontent-delivery-python-sdk) to retrieve content from Kentico Kontent.  Plotly and [Dash](https://plotly.com/python/network-graphs/#network-graphs-in-dash) are used to generate a network graph of linked items in a Kontent project.
 
 If you find a bug in the sample or have a feature request, please submit a GitHub issue.
 
