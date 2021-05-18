@@ -9,7 +9,8 @@ If you find a bug in the sample or have a feature request, please submit a GitHu
 ## Table of Contents
 - [Getting started](#Getting-started)
   - [Connecting to your Sample Project](#Connecting-to-your-Sample-Project)
-- [Filtering]
+- [Features](#Features)
+- [Filtering](#Filtering)
 
 ## Getting started
 We recommend running this sample application using virtual environment tooling such as [virtualenv](https://virtualenv.pypa.io/en/latest/).
@@ -30,6 +31,12 @@ If you already have a [Kentico Kontent account](https://app.kontent.ai), you can
 1. Open the `config.py` file
 1. Use the values from your Kentico Kontent project as the `project_id` value
 1. Save the changes
+
+## Features
+* Nodes can be moved by clicking and dragging.
+* Hovering over an arrow (edge) between two nodes shows how they are related in the left-hand margin.
+* Zooming in/out can be done with your mousewheel when your cursor is positioned over the graph.
+* Clicking the "Reset" button will reset the zoom.
 
 ## Filtering
 To leverage the [Kontent Python SDK's Filtering](https://github.com/kentico-michaelb/kontent-delivery-python-sdk#Filtering-content):
