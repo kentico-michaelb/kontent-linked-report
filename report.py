@@ -1,4 +1,5 @@
 import dash
+import flask
 from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_cytoscape as cyto
@@ -7,7 +8,8 @@ import config
 
 nodes = create_network()
 
-app = dash.Dash(__name__)
+server = flask.Flask(__name__)
+app = dash.Dash(server=server)
 
 app.index_string = '''
 <!DOCTYPE html>
