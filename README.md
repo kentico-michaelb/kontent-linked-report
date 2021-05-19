@@ -2,8 +2,6 @@
 
 This is a sample app that uses the [Kentico Kontent Python SDK](#https://github.com/kentico-michaelb/kontent-delivery-python-sdk) to retrieve content from Kentico Kontent.  Plotly and [Dash](https://plotly.com/python/network-graphs/#network-graphs-in-dash) are used to generate a network graph of linked items in a Kontent project.
 
->Note: Konstellations uses [Kentico Kontent's "items" endpoint](https://docs.kontent.ai/reference/delivery-api#operation/list-content-items), meaning it is limited to a 2000 item response. To change what items are returned, please see the [Filtering](#filtering) section of this README.
-
 If you find a bug in the sample or have a feature request, please submit a GitHub issue.
 
 ## Table of Contents
@@ -11,6 +9,7 @@ If you find a bug in the sample or have a feature request, please submit a GitHu
   - [Connecting to your Sample Project](#Connecting-to-your-Sample-Project)
 - [Features](#Features)
 - [Filtering](#Filtering)
+- [Limitations](#Limitations)
 
 ## Getting started
 We recommend running this sample application using virtual environment tooling such as [virtualenv](https://virtualenv.pypa.io/en/latest/).
@@ -54,3 +53,8 @@ response = client.get_content_items(
 )
 ```
 4. Run the application with: ```report.py```
+
+## Limitations
+* Konstellations uses [Kentico Kontent's "items" endpoint](https://docs.kontent.ai/reference/delivery-api#operation/list-content-items), meaning it is limited to a 2000 item response. To change what items are returned, please see the [Filtering](#filtering) section of this README.
+
+* The network graph only shows content items from [linked items elements](https://docs.kontent.ai/tutorials/assorted-items/dive-deeper-into-kentico-kontent/terminology#a-linked-items-element) in the project. Components and inline content items within [rich text editor elements](https://docs.kontent.ai/tutorials/assorted-items/dive-deeper-into-kentico-kontent/terminology#a-rich-text-element) are not included in the report.
