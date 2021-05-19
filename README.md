@@ -35,6 +35,7 @@ If you already have a [Kentico Kontent account](https://app.kontent.ai), you can
 
 ## Features
 * Nodes can be moved by clicking and dragging.
+* Move around the canvas by holding down left-mouse-click in blank space and moving your mouse.
 * Hovering over an arrow (edge) between two nodes shows how they are related in the left-hand margin.
 * Zooming in/out can be done with your mousewheel when your cursor is positioned over the graph.
 * Clicking the "Reset" button will reset the zoom.
