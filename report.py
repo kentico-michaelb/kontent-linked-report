@@ -144,5 +144,5 @@ def displayTapEdgeData(data):
 def reset_layout(n_clicks):
     return [1, nodes]
 
-
-app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
