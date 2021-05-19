@@ -1,3 +1,5 @@
+[![Live Demo](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kontent-konstellations.herokuapp.com/)
+
 # Kontent Konstellations
 
 This is a sample app that uses the [Kentico Kontent Python SDK](#https://github.com/kentico-michaelb/kontent-delivery-python-sdk) to retrieve content from Kentico Kontent.  Plotly and [Dash](https://plotly.com/python/network-graphs/#network-graphs-in-dash) are used to generate a network graph of linked items in a Kontent project.
