@@ -1,10 +1,10 @@
 import config
 from kontent_delivery.client import DeliveryClient
 
-def create_network():
+def create_network(api_key = config.project_id):
     # KONTENT PYTHON SDK
     # initialize Kontent delivery client
-    client = DeliveryClient(config.project_id, options=config.delivery_options)
+    client = DeliveryClient(api_key, options=config.delivery_options)
 
     response = client.get_content_items()
     items = response.items

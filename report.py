@@ -1,6 +1,7 @@
 import dash
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import dash_html_components as html
+import dash_core_components as dcc
 import dash_cytoscape as cyto
 from network_builder import create_network
 import config
@@ -20,8 +21,8 @@ app.index_string = '''
     </head>
     <body style="background-color: #918F8F">
         <div style="background-color:black;">
-        <img id="logo" 
-                alt="Kontent" 
+        <img id="logo"
+                alt="Kontent"
                 src="static\\images\\02-kk-logo-col-blk.svg"
                 height="148px" width="257px"
                 "/>
@@ -74,10 +75,14 @@ styles = {
 app.layout = html.Div(style=styles["container"], children=[
     html.Div(style=styles["info"], children=[
         html.H1("Konstellation for project:"),
-        html.H2(f"{config.project_id}"),
+        html.H2(id="project-id", children=config.project_id),
+        dcc.Input(id="project-id-input",
+            type="text",
+            debounce=True),
+        html.Button("Build Graph", id="btn-reset", style=styles["btn-reset"]),
         html.P("Hover over links to view linked item relationships:"),
-        html.Button("Reset Zoom", id="btn-reset", style=styles["btn-reset"]),
         html.Div(id="cytoscape-mouseoverEdgeData-output"),
+        html.Div(id="output")
     ]),
     html.Div(className="cy-container", style=styles["cy-container"], children=[
         cyto.Cytoscape(
@@ -125,7 +130,7 @@ app.layout = html.Div(style=styles["container"], children=[
             }
         ]
         ),
-    ]),       
+    ]),
 ])
 
 
@@ -138,11 +143,18 @@ def displayTapEdgeData(data):
 
 @app.callback(
     [Output("linked_items_report", "zoom"),
-     Output("linked_items_report", "elements")],
-    [Input("btn-reset", "n_clicks")]
+    Output("linked_items_report", "elements"),
+    Output("project-id", "children")],
+    [Input("btn-reset", "n_clicks")],
+    state=[State('project-id-input', 'value')]
 )
-def reset_layout(n_clicks):
-    return [1, nodes]
-
+def reset_layout(n_clicks, value):
+    if value:
+        nodes = create_network(value)
+        project_id = value
+    else:
+        project_id = config.project_id
+        nodes = create_network()
+    return [1, nodes, project_id]
 
 app.run_server(debug=True)
