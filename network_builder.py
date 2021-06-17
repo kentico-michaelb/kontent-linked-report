@@ -1,12 +1,19 @@
 import config
 from kontent_delivery.client import DeliveryClient
 
-def create_network():
+def create_network(api_key = config.project_id):
     # KONTENT PYTHON SDK
     # initialize Kontent delivery client
-    client = DeliveryClient(config.project_id, options=config.delivery_options)
+    client = DeliveryClient(api_key, options=config.delivery_options)
 
-    response = client.get_content_items()
+    try:
+        response = client.get_content_items()
+    except Exception as err:
+        print(err)
+
+    if response is None or response.api_response.status_code == 404:
+        return 404
+
     items = response.items
 
     response = client.get_content_types()
@@ -43,5 +50,4 @@ def create_network():
                         nodes.append(link)
     
     return nodes
-
-
+    
