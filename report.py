@@ -52,7 +52,7 @@ styles = {
     "cy-container": {
         "position": "relative",
         "backgroundColor":"#E9E8E8",
-        "width": "74%",
+        "width": "73%",
         "height": "100%",
         "margin": "auto"
     },
@@ -83,6 +83,8 @@ app.layout = html.Div(style=styles["container"], children=[
             type="text",
             placeholder="Project ID",
             value="",
+            size="35",
+            min=35,
             debounce=True),
         ),
         html.Div(
