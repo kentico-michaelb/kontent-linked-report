@@ -76,14 +76,26 @@ app.layout = html.Div(style=styles["container"], children=[
     html.Div(style=styles["info"], children=[
         html.H1("Konstellation for project:"),
         html.H2(id="project-id", children=config.project_id),
+        html.Div(
         dcc.Input(id="project-id-input",
             type="text",
+            placeholder="Project ID",
+            value="",
             debounce=True),
+        ),
+        html.Div(
         html.Button("Build Graph", id="btn-reset", style=styles["btn-reset"]),
+        ),
         html.P("Hover over links to view linked item relationships:"),
         html.Div(id="cytoscape-mouseoverEdgeData-output"),
-        html.Div(id="output")
+        html.Div(id="output"),
     ]),
+     html.Div(children=[
+            html.A(
+                html.P("Tool Limitations"), 
+                href="https://github.com/kentico-michaelb/kontent-linked-report#limitations"
+            )]
+        ),
     html.Div(className="cy-container", style=styles["cy-container"], children=[
         cyto.Cytoscape(
             id="linked_items_report",
@@ -149,12 +161,16 @@ def displayTapEdgeData(data):
     state=[State('project-id-input', 'value')]
 )
 def reset_layout(n_clicks, value):
-    if value:
-        nodes = create_network(value)
-        project_id = value
-    else:
-        project_id = config.project_id
-        nodes = create_network()
-    return [1, nodes, project_id]
+    try:
+        if value:
+            nodes = create_network(value)
+            if nodes != 404:
+                project_id = value
+        else:
+            project_id = config.project_id
+            nodes = create_network()
+        return [1, nodes, project_id]
+    except:
+        return [1, dash.no_update, "An error occurred. Please check the application console."]
 
 app.run_server(debug=True)
