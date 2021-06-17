@@ -1,4 +1,5 @@
 import dash
+import flask
 from dash.dependencies import Input, Output, State
 import dash_html_components as html
 import dash_core_components as dcc
@@ -175,4 +176,5 @@ def reset_layout(n_clicks, value):
     except:
         return [1, dash.no_update, "An error occurred. Please check the application console."]
 
-app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True) 
