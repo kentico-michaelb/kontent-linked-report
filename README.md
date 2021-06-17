@@ -1,3 +1,5 @@
+[![Live Demo](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kontent-konstellations.herokuapp.com/)
+
 # Kontent Konstellations
 
 This is a sample app that uses the [Kentico Kontent Python SDK](#https://github.com/kentico-michaelb/kontent-delivery-python-sdk) to retrieve content from Kentico Kontent.  Plotly and [Dash](https://plotly.com/python/network-graphs/#network-graphs-in-dash) are used to generate a network graph of linked items in a Kontent project.
@@ -33,6 +35,7 @@ If you already have a [Kentico Kontent account](https://app.kontent.ai), you can
 
 ## Features
 * Nodes can be moved by clicking and dragging.
+* Move around the canvas by holding down left-mouse-click in blank space and moving your mouse.
 * Hovering over an arrow (edge) between two nodes shows how they are related in the left-hand margin.
 * Zooming in/out can be done with your mousewheel when your cursor is positioned over the graph.
 * Clicking the "Reset" button will reset the zoom.

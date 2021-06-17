@@ -8,7 +8,8 @@ import config
 
 nodes = create_network()
 
-app = dash.Dash(__name__)
+server = flask.Flask(__name__)
+app = dash.Dash(server=server)
 
 app.index_string = '''
 <!DOCTYPE html>
@@ -160,6 +161,7 @@ def displayTapEdgeData(data):
     [Input("btn-reset", "n_clicks")],
     state=[State('project-id-input', 'value')]
 )
+
 def reset_layout(n_clicks, value):
     try:
         if value:
